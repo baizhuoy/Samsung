@@ -1,3 +1,5 @@
+# import packages and all necessary modules
+
 import openpyxl
 from openpyxl import load_workbook
 from openpyxl.descriptors import (String,Sequence,Integer)
@@ -21,6 +23,7 @@ wk=yr+week
 mon=today.strftime("%b")
 next_month=today+relativedelta(months=+1)
 next_mon=next_month.strftime("%b")
+
 
 warnings.filterwarnings('ignore',category=UserWarning)
 
@@ -137,7 +140,7 @@ def gscm(target, gfile, tsheet, data_col, arrive_push=1, piv=1):
                     while j < wk_qty:
                         wk_select = wk_idx + j
                         cur_total = cur_total + w1.cell(i, wk_select).value
-                         j += 1
+                        j += 1
 
         if piv == 1:
             pivot = w1._pivots[0]
@@ -158,5 +161,5 @@ def sap(target, sfile, tsheet,data_col):
                 nc = w1.cell(row=cell.row, column=cell.column, value=cell.value)
 
 
-gscm("C:\\Users\\zhuoyan.bai\\Documents\\ATS\\test\\OLD.xlsx",
-     "C:\\Users\\zhuoyan.bai\\Documents\\ATS\\test\\arrival.xlsx","PSI Arrivals",42)
+gscm("E:\\三星\\ATS\\wk48\\python.xlsx",
+     "E:\\三星\\ATS\\wk48\\arrive.xlsx","PSI Arrivals",42)
